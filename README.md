@@ -21,9 +21,10 @@ up the point values of the letters used in the word.
 
 ### Blank Tile
 
-Scrabble also has a blank tile. Its point value is zero but it can be used as a
-substitute for any letter while constructing words. Our application needs to be
-able to use the blank tile when needed while finding the highest point word.
+Scrabble also has **two** blank tiles. Its point value is zero but it can be
+used as a substitute for any letter while constructing words. Our application
+needs to be able to use the blank tile when needed while finding the highest
+point word.
 
 ## Data
 
@@ -48,35 +49,46 @@ Here are some examples:
 PLANAR - 8
 
 > bin/scrabble CREB_AL
-BLAZER - 16
+BLAZER - 17
 
 > bin/scrabble YPOBINX
 BOXY - 16
 PIXY - 16
 POXY - 16
+PNYX - 16
 ```
 
 ## What are we looking for?
 
-1. Well-factored code: We will not evaluate your solution as a PASS or FAIL
+1. **Well-factored code:** We will not evaluate your solution as a PASS or FAIL
    based on the correctness of its output. Readability, maintainability and
    fundamental concepts like single responsibility are important for us.
-2. Intentional decisions: You probably do not have time to build the most
+2. **Intentional decisions:** You probably do not have time to build the most
    performant solution but it's important to be aware of performance and runtime
    characteristics of your solution. You can update this file with notes about
    fundamental trade-offs you made while developing your solution.
-3. Handling invalid input and error conditions: Make sure to handle important
-   error conditions with helpful messages for the user about how to recover from
-   these errors and use your application.
-4. Tests that exercise the critical branching logic: You can extend the test
+3. **Handling invalid input and error conditions:** Make sure to handle
+   important error conditions with helpful messages for the user about how to
+   recover from these errors and use your application.
+4. **Tests that exercise the critical branching logic:** You can extend the test
    files under `./spec` and you can run the tests with `rake spec` command.
-5. Clear instructions: Make sure to update this file with the instructions about
-   how to setup and run your application (if any).
-6. Extensibility: In your interview loop we will do a code review with you where
-   we talk about your solution and decisions. We will also talk about how to add
-   a new feature to your solution.
+5. **Clear instructions:** Make sure to update this file with the instructions
+   about how to setup and run your application (if any).
+6. **Extensibility:** In your interview loop we will do a code review with you
+   where we talk about your solution and decisions. We will also talk about how
+   to add a new feature to your solution.
+
+Feel free to use any tools, resources, and libraries that will make the solution
+faster and more clear. Do not feel yourself forced to reinvent the wheel.
+
+## Submitting your solution
+
+There is no hard time limit on this exercise but we estimate it to take about
+four hours. Once you feel like you are complete or once you reach four hours
+push your code to this repository and email
+[serdar@boundless.co](mailto:serdar@boundless.co).
 
 ## Questions
 
 If you have any questions about this problem or about your interview process
-reach out to: serdar@boundless.co
+reach out to: [serdar@boundless.co](mailto:serdar@boundless.co).
