@@ -42,7 +42,7 @@ We will run our application via command line by passing 7 letters as a
 parameter. We will denote the blank tile with `_`. The expected output of the
 application is the highest point word and the point value of the word.
 
-Here are some examples:
+Here are some examples. Your solution should match the output exactly:
 
 ```
 > bin/scrabble ARPNNLA
@@ -54,8 +54,13 @@ BLAZER - 17
 > bin/scrabble YPOBINX
 BOXY - 16
 PIXY - 16
-POXY - 16
 PNYX - 16
+POXY - 16
+
+> bin/scrabble istf
+FIST - 7
+FITS - 7
+SIFT - 7
 ```
 
 ## What are we looking for?
