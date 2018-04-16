@@ -17,45 +17,33 @@ module Scrabble
       end
     end
 
-    # def create_scoreboard
-    #   File.open("../data/points.txt", "r") do |f|
-    #     f.each_line do |line|
-    #       line.strip!
-    #       @scoreboard[line[0].downcase] = line[2..line.length]
-    #     end
-    #   end
-    # end
-
     def blank_tiles(letters)
       # this is a lot of processing and makes the program slow
-      # think of ways to make this more effective, different approaches
+      # is there a way to do this more effective, different approaches?
       ('a'..'z').each do |letter|
         new_letters = letters.gsub(/(_)/, letter )
-        puts new_letters
-        # @blank_valid_words.push(new_letters)
-        # @valid_words.push(find_permutations(new_letters))
+        @valid_words.push(find_permutations(new_letters))
       end
-      # @valid_words.push(find_permutations(@blank_valid_words))
+
     end
 
     def find_permutations(letters)
-      letters.downcase!
-      if letters.include?("_")
-        return blank_tiles(letters)
-      end
-
-      letters_arr = letters.split("")
-      #
-      #   # start with 2 letter words and continue to find perms up to number of letters
-      i = 2
-      while i <= letters.length
-        perms = letters_arr.permutation(i).to_a
-        perms.each do |p|
-          word = p.join("")
-          validate_words(word)
+        letters.downcase!
+        if letters.include?("_")
+          return blank_tiles(letters)
         end
-        i +=1
-      end
+
+        letters_arr = letters.split("")
+          # start with 2 letter words and continue to find perms up to number of letters
+        i = 2
+        while i <= letters.length
+          perms = letters_arr.permutation(i).to_a
+          perms.each do |p|
+            word = p.join("")
+            validate_words(word)
+          end
+          i +=1
+        end
       Scoring.score_words(@valid_words.flatten)
     end
 
@@ -70,9 +58,9 @@ end
 
 
 # letters = "CREB_AL"
-# letters = "ARPNNLA"
+letters = "ARPNNLA"
 # letters = "YPOBINX"
-letters = "istf"
+# letters = "istf"
 
 my_game = Scrabble::Dictionary.new
 my_game.find_permutations(letters)
