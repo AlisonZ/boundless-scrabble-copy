@@ -3,7 +3,7 @@
 # put this dictionary hash creator in the class for starting new game of Scrabble
 def create_dictionary_hash
   dictionary = {}
-  File.open("../data/dictionary.txt", "r") do |f|
+  File.open("../data/sample_dictionary.txt", "r") do |f|
     f.each_line do |line|
       dictionary[line.strip] = true;
     end
@@ -31,18 +31,19 @@ def find_permutations(letters)
     i +=1
   end
 
-  # validate which perms are found in the dictionarys
   validate_words(perms_arr)
 end
 
 
+# validate which permutations are found in the dictionary
 def validate_words(perms_arr)
   dictionary = create_dictionary_hash
   valid_words = []
 
   perms_arr.each do |word|
-    if dictionary[word]
-      valid_words.push(word)
+    # TODO: add functionality for blank tiles
+    if dictionary[word] && !valid_words.include?(word)
+        valid_words.push(word)
     end
   end
 
