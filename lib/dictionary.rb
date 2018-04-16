@@ -28,7 +28,6 @@ module Scrabble
     end
 
     def find_permutations(letters)
-        letters.downcase!
         if letters.include?("_")
           return blank_tiles(letters)
         end
