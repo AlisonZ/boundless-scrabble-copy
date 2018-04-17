@@ -1,9 +1,12 @@
+require_relative "./dictionary.rb"
+
 module Scrabble
   # class Player can be expanded to keep track of points scored, words played as well as handle Player word plays
   class Player
-    attr_reader :name
+    attr_reader :name, :letters
     def initialize
       @name = name
+      @letters = letters
     end
 
     def get_name
@@ -16,8 +19,10 @@ module Scrabble
 
     def play_letters
       puts "Enter 7 letters and I'll find the word(s) with the highest score you can make from them!"
-      letters = gets.chomp.downcase!
+      @letters = gets.chomp.downcase!
       puts "The letters you've selected are #{letters}"
+
+      Dictionary.find_permutations(letters)
     end
 
 

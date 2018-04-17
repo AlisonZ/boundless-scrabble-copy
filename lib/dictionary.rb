@@ -56,10 +56,10 @@ module Scrabble
 end
 
 
-# letters = "CREB_AL"
-letters = "ARPNNLA"
+letters = "CREB_AL"
+# letters = "ARPNNLA"
 # letters = "YPOBINX"
 # letters = "istf"
 
-my_game = Scrabble::Dictionary.new
-my_game.find_permutations(letters)
+# my_game = Scrabble::Dictionary.new
+# my_game.find_permutations(letters)
