@@ -1,20 +1,22 @@
 require_relative "./dictionary.rb"
 require_relative "./scoring.rb"
 require_relative "./letter_points.rb"
+require_relative "./player.rb"
 
 module Scrabble
   class Game
-    attr_reader :dictionary, :player, :valid_words, :letter_points
+    attr_reader :dictionary, :player, :valid_words, :letter_points, :player
     def initialize
       @dictionary = dictionary
       @letter_points = letter_points
-      # @player = player
+      @player = player
       @valid_words = []
       create_dictionary
       create_letter_points
+      start_game
     end
 
-    # to make these create functions more expandable, alter so need to provide a text file
+    # to make these create functions more expandable, alter to take in the text file
     # then will be able to play in different languages
     def create_dictionary
       @dictionary = Scrabble::Dictionary.new()
@@ -27,18 +29,23 @@ module Scrabble
       @letter_points = Scrabble::LetterPoints.new().letter_points
     end
 
-    # def create_player
-    #   @player = Scrabble::Player.new
-    # end
+    def start_game
+      puts "Welcome to a new game!"
+      @player = Scrabble::Player.new()
+      if @player.letters
+        find_highest_score(@player.letters)
+      elsif @player.word
+        find_word_score(@player.word)
+      end
+    end
 
-    # this is what is gonna kick it off and get all the permutations and validate and THEN score
-    def find_highest_score
-      # get letters from players
-      # find_permutations("ARPNNLA")
-      find_permutations("CREB_AL")
-      # find_permutations("YPOBINX")
-      # find_permutations("istf")
+    def find_highest_score(letters)
+      find_permutations(letters)
       Scoring.score_words(@valid_words, @letter_points)
+    end
+
+    def find_word_score(word)
+      puts "Please stand by! This feature coming soon."
     end
 
 
@@ -80,6 +87,3 @@ module Scrabble
 end
 
 my_game = Scrabble::Game.new()
-# puts my_game.create_letter_values
-# my_game.letter_values.letter_values
-my_game.find_highest_score
