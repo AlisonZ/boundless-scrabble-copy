@@ -1,21 +1,32 @@
 require_relative "./dictionary.rb"
+require_relative "./scoring.rb"
+require_relative "./letter_points.rb"
 
 module Scrabble
   class Game
-    attr_reader :dictionary, :player, :valid_words
+    attr_reader :dictionary, :player, :valid_words, :letter_points
     def initialize
       @dictionary = dictionary
+      @letter_points = letter_points
       # @player = player
       @valid_words = []
-      # @scoreboard
       create_dictionary
-      # create_scoreboard
+      create_letter_points
     end
 
-
+    # to make these create functions more expandable, alter so need to provide a text file
+    # then will be able to play in different languages
     def create_dictionary
       @dictionary = Scrabble::Dictionary.new()
     end
+
+    # used separate class to capture that different languages will have different letters and different point systems
+    # debated putting this in the Scoring class, but because scoring methods will be the same across games, kept that separate
+    # interested in feedback/a discussion on this approach
+    def create_letter_points
+      @letter_points = Scrabble::LetterPoints.new().letter_points
+    end
+    
 
     # def create_player
     #   @player = Scrabble::Player.new
@@ -65,4 +76,7 @@ module Scrabble
 end
 
 my_game = Scrabble::Game.new()
-my_game.find_highest_score
+puts my_game.letter_points
+# puts my_game.create_letter_values
+# my_game.letter_values.letter_values
+# my_game.find_highest_score

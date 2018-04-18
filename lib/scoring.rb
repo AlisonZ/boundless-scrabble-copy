@@ -1,32 +1,8 @@
 module Scrabble
   class Scoring
-    # TODO: how to get these to initialize and use these instance variables?
-    # attr_reader :scoreboard
-    # def initialize
-    #   @word_scores = {}
-    #   create_scoreboard
-    # end
-
-
-    def self.create_scoreboard
-      scoreboard = {}
-      File.open("../data/points.txt", "r") do |f|
-        f.each_line do |line|
-          line.strip!
-          scoreboard[line[0].downcase] = line[2..line.length]
-        end
-      end
-      return scoreboard
-    end
-
-
     def self.score_words(valid_words)
       scoreboard = self.create_scoreboard
       word_scores = {}
-      # # # puts "This is the scoreboard #{scoreboard}"
-      # # # puts "This is the valid_words #{valid_words}"
-      # # # think of a different way to do this - not happy about the On*m complexity
-      # # # puts "this is the word_scores #{scoreboard}"
       valid_words.each do |word|
         current_score = 0
         word.split("").each do |char|
