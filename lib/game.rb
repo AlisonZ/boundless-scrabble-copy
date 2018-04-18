@@ -26,7 +26,6 @@ module Scrabble
     def create_letter_points
       @letter_points = Scrabble::LetterPoints.new().letter_points
     end
-    
 
     # def create_player
     #   @player = Scrabble::Player.new
@@ -35,20 +34,24 @@ module Scrabble
     # this is what is gonna kick it off and get all the permutations and validate and THEN score
     def find_highest_score
       # get letters from players
+      # find_permutations("ARPNNLA")
       find_permutations("CREB_AL")
-      puts @valid_words
-      # find scores
+      # find_permutations("YPOBINX")
+      # find_permutations("istf")
+      Scoring.score_words(@valid_words, @letter_points)
     end
 
 
     def blank_tiles(letters)
       # this is a lot of processing and makes the program slow
       # is there a way to do this more effective, different approaches?
+      # Nil words were being saved in the array of valid words, used compact! as a quick solution to get rid of them
+      # with more time, i would identify where and why Nil is getting saved in the array and would remedy the code
       ('a'..'z').each do |letter|
         new_letters = letters.gsub(/(_)/, letter )
         @valid_words.push(find_permutations(new_letters))
       end
-
+      @valid_words.compact!
     end
 
     def find_permutations(letters)
@@ -58,6 +61,7 @@ module Scrabble
       end
 
       letters_arr = letters.split("")
+
       # start with 2 letter words and continue to find perms up to number of letters
       i = 2
       while i <= letters.length
@@ -76,7 +80,6 @@ module Scrabble
 end
 
 my_game = Scrabble::Game.new()
-puts my_game.letter_points
 # puts my_game.create_letter_values
 # my_game.letter_values.letter_values
-# my_game.find_highest_score
+my_game.find_highest_score

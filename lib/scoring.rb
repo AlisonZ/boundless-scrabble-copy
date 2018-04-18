@@ -1,12 +1,12 @@
 module Scrabble
   class Scoring
-    def self.score_words(valid_words)
-      scoreboard = self.create_scoreboard
+    def self.score_words(valid_words, letter_points)
       word_scores = {}
+
       valid_words.each do |word|
         current_score = 0
         word.split("").each do |char|
-          current_score += scoreboard[char].to_i
+          current_score += letter_points[char].to_i
           if word_scores[current_score]
             word_scores[current_score] += [word]
           else
@@ -14,7 +14,8 @@ module Scrabble
           end
         end
       end
-      self.find_highest_score(word_scores)
+    #
+    self.find_highest_score(word_scores)
     end
 
 
