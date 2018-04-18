@@ -1,5 +1,5 @@
 module Scrabble
-  # class Player can be expanded to keep track of points scored, words played, etc.
+  # Player can be expanded to keep track of points scored, words played, etc.
   class Player
     attr_reader :name, :letters, :word
     def initialize
@@ -25,13 +25,12 @@ module Scrabble
         # can add checks in here to see if the user entered the correct letters or wants to re-enter
         # add edge case checks in here
         @letters = gets.chomp
-        
+
       elsif selection === "2"
         puts "Enter the word you would like to play."
         @word = gets.chomp
       else
         puts "Please start again. You have entered an incorrect response."
-        # end
       end
 
     end
