@@ -9,30 +9,57 @@ module Scrabble
       begin_game
     end
 
+    def get_letters
+      letters = gets.chomp
 
-    # added some command line/user-interface and added an example of how to add additional play feature
-    def begin_game
+      if letters.length < 2
+        puts "You must enter at least two letters to play a word"
+        puts "Let's try again! Enter your letters:"
+        get_letters
+      end
+
+      if letters !~ /[^a-z_]/ && letters.count('_') <= 2
+        @letters = letters
+      else
+        puts "You can only enter letters and two '_' for blank tiles"
+        puts "Try again!"
+        get_letters
+      end
+
+    end
+
+    def get_name
       puts "What's your name?"
       @name = gets.chomp
+      choose_game
+    end
 
+    def choose_game
       puts "Select a number to determine how you would like to proceed:"
       puts "1. Enter my letters and find the highest scoring word I can play"
       puts "2. Play a word and get the score"
+      puts "3. End game"
       selection = gets.chomp
-      #
       if selection === "1"
         puts "Great! Enter your letters and I can tell you what your best play(s) are!"
-        # can add checks in here to see if the user entered the correct letters or wants to re-enter
-        # add edge case checks in here
-        @letters = gets.chomp
-
+        get_letters
       elsif selection === "2"
         puts "Enter the word you would like to play."
-        @word = gets.chomp
+        get_word
+      elsif selection === "3"
+        return
       else
         puts "Please start again. You have entered an incorrect response."
+        choose_game
       end
+    end
 
+    def get_word
+      @word = gets.chomp
+    end
+
+    def begin_game
+      get_name
     end
   end
 end

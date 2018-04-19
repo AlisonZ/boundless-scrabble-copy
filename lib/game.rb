@@ -41,7 +41,11 @@ module Scrabble
 
     def find_highest_score(letters)
       find_permutations(letters)
-      Scoring.score_words(@valid_words, @letter_points)
+      if @valid_words.length === 0
+        puts "Sorry - there are no valid words with those letters"
+      else
+        Scoring.score_words(@valid_words, @letter_points)
+      end
     end
 
     def find_word_score(word)
@@ -86,4 +90,5 @@ module Scrabble
   end
 end
 
-my_game = Scrabble::Game.new()
+@game = Scrabble::Game.new()
+# puts @game.class
