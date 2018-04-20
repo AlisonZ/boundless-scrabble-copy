@@ -1,5 +1,4 @@
 require "spec_helper"
-require "cli"
 
 describe CLI do
   it "should do basic math" do

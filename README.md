@@ -7,6 +7,23 @@ compete by creating words with tiles. Each tile contains a letter and a point
 value for that letter. In this exercise we will write an application which can
 find the first move in a game of Scrabble.
 
+## Play
+The game is played from the console and is run through the game.rb. From command line, cd to folder holding the Scrabble game and cd to the lib file. Run $ruby game.rb and the game will begin! Command line instructions walk the user through entering input.
+
+## Decisions
+
+For this game I chose to have 5 classes of Dictionary, LetterPoints, Game, Player and Scoring. I opted to keep the Dictionary and LetterPoints separate so that the Game could be played with different languages which would affect both the dictionary and letter point values. I debated combining the letter points with either Scoring or the Dictionary, but it felt like a distinct entity and I could see a few use cases for wanting to only access the LetterPoints, such as a user wanting to reference the points values to inform their word play. Player, Scoring and Game seemed like fairly straightforward decisions. Future iterations would allow for Player to be expanded to keep track of items such as all_words_played, total_points_scored, game_history etc. Game could also be expanded to keep track of several players at one time, hold an instance of a Tilebag of tiles that is shared by all players throughout the game and so forth. Scoring contains logic for scoring the words once they are deemed valid by the dictionary.
+
+## Room for Improvement
+### Permutations:
+As can be seen in the code, I used the Ruby .permutation functionality to create all permutations of the letters ranging from 2 letter to all 7 letters. This approach is greedy in regards to efficiency, but solves the problem and is a readable solution. I originally toyed around with the idea of creating anagrams or a system that would match letters to unique numbers. I chose this approach because it works (unlike the anagram idea) and is much less complicated than employing a unique number system.
+
+### Blank Tiles:
+The current version of this Scrabble game successfully handles input with one blank tile. I achieved this by creating all permutations for each string with a letter from the alphabet. Admittedly this is not efficient and requires creating permutations for 26 strings. When I was considering expanding this approach to account for two blank tiles it did not seem reasonable from an efficiency perspective. I am curious to hear of other approaches to this problem and will continue to think about how to refactor the code to account for two tiles. An additional point is that the handling of Blank Tiles adds Nil elements to the array of all valid_words. In order to have the program running, I used .compact! on this array to delete any Nil items. This is purely a stop-gap approach to have a working version. Ideally I would find where this is being wrongly generated in the code and fix the problem there.
+
+##Testing
+In the spec folder there is a new file game_spec.rb which holds the outline for the tests that I would include for this project. With the time constraints I was unable to write all the tests. The  outline demonstrates what I test for and my approach to testing. Additionally, I have enjoyed working with testing suites that detail the percentage of coverage and the lines that are not accounted for. I usually begin by testing for the major working pieces, as shown in the outline, then I use the % of coverage to inform areas that may be under-tested.
+
 ## Rules
 
 Our application will use:
