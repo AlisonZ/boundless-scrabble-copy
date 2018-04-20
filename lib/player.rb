@@ -9,6 +9,7 @@ module Scrabble
     end
 
     def get_letters
+
       letters = gets.chomp
 
       if letters.length < 2
@@ -17,7 +18,7 @@ module Scrabble
         get_letters
       end
 
-      if letters !~ /[^a-z_]/ && letters.count('_') <= 2
+      if letters !~ /[^A-Za-z_]/ && letters.count('_') <= 2
         @letters = letters
       else
         puts "You can only enter letters and two '_' for blank tiles"
