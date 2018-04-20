@@ -1,5 +1,4 @@
 module Scrabble
-  # Player can be expanded to keep track of points scored, words played, etc.
   class Player
     attr_reader :name, :letters, :word
     def initialize

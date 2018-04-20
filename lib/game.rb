@@ -16,15 +16,10 @@ module Scrabble
       start_game
     end
 
-    # to make these create functions more expandable, alter to take in the text file
-    # then will be able to play in different languages
     def create_dictionary
       @dictionary = Scrabble::Dictionary.new()
     end
 
-    # used separate class to capture that different languages will have different letters and different point systems
-    # debated putting this in the Scoring class, but because scoring methods will be the same across games, kept that separate
-    # interested in feedback/a discussion on this approach
     def create_letter_points
       @letter_points = Scrabble::LetterPoints.new().letter_points
     end
@@ -73,7 +68,6 @@ module Scrabble
 
       letters_arr = letters.split("")
 
-      # start with 2 letter words and continue to find perms up to number of letters
       i = 2
       while i <= letters.length
         perms = letters_arr.permutation(i).to_a
@@ -91,4 +85,3 @@ module Scrabble
 end
 
 @game = Scrabble::Game.new()
-# puts @game.class

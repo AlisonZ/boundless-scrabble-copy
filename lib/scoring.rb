@@ -14,7 +14,6 @@ module Scrabble
           end
         end
       end
-    #
     self.find_highest_score(word_scores)
     end
 
@@ -31,22 +30,3 @@ module Scrabble
     end
   end
 end
-
-# letters = "ARPNNLA"
-# # letters = "CREB_AL"
-# # letters = "YPOBINX"
-# # letters = "istf"
-#
-# # TODO: organize classes and where this can be effective
-# def play_game(letters)
-#   my_game = Scrabble.new
-#   results =  my_game.find_permutations(letters)
-#   best_words = results[1].sort.uniq
-#   best_words.each do |word|
-#     puts "#{word.upcase} - #{results[0]}"
-#   end
-# end
-#
-# play_game(letters)
-# my_score = Scrabble::Scoring.new
-# my_score.score_words
