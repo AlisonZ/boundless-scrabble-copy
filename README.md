@@ -21,7 +21,7 @@ As can be seen in the code, I used the Ruby .permutation functionality to create
 ### Blank Tiles:
 The current version of this Scrabble game successfully handles input with one blank tile. I achieved this by creating all permutations for each string with a letter from the alphabet. Admittedly this is not efficient and requires creating permutations for 26 strings. When I was considering expanding this approach to account for two blank tiles it did not seem reasonable from an efficiency perspective. I am curious to hear of other approaches to this problem and will continue to think about how to refactor the code to account for two tiles. An additional point is that the handling of Blank Tiles adds Nil elements to the array of all valid_words. In order to have the program running, I used .compact! on this array to delete any Nil items. This is purely a stop-gap approach to have a working version. Ideally I would find where this is being wrongly generated in the code and fix the problem there.
 
-##Testing
+## Testing
 In the spec folder there is a new file game_spec.rb which holds the outline for the tests that I would include for this project. With the time constraints I was unable to write all the tests. The  outline demonstrates what I test for and my approach to testing. Additionally, I have enjoyed working with testing suites that detail the percentage of coverage and the lines that are not accounted for. I usually begin by testing for the major working pieces, as shown in the outline, then I use the % of coverage to inform areas that may be under-tested.
 
 ## Rules
