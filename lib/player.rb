@@ -21,6 +21,7 @@ module Scrabble
       if letters !~ /[^A-Za-z_]/ && letters.count('_') <= 2
         @letters = letters
       else
+        puts "_" * 75
         puts "You can only enter letters and two '_' for blank tiles"
         puts "Try again!"
         get_letters
@@ -36,6 +37,7 @@ module Scrabble
 
     def choose_game
       puts "Select a number to determine how you would like to proceed:"
+      puts " " * 50
       puts "1. Enter my letters and find the highest scoring word I can play"
       puts "2. Play a word and get the score"
       puts "3. End game"

@@ -44,6 +44,7 @@ module Scrabble
     end
 
     def find_word_score(word)
+      puts "!" * 15
       puts "Please stand by! This feature coming soon."
     end
 

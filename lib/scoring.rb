@@ -23,6 +23,7 @@ module Scrabble
     end
 
     def self.report_findings(high_score)
+      puts "="* 30 + "RESULTS" + "=" * 30
       best_words = high_score[1].sort.uniq
       best_words.each do |word|
         puts "#{word.upcase} - #{high_score[0]}"
