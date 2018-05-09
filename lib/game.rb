@@ -34,17 +34,17 @@ module Scrabble
 
 
 
-    def blank_tiles(letters)
-      # this is a lot of processing and makes the program slow
-      # is there a way to do this more effective, different approaches?
-      # Nil words were being saved in the array of valid words, used compact! as a quick solution to get rid of them
-      # with more time, i would identify where and why Nil is getting saved in the array and would remedy the code
-      ('a'..'z').each do |letter|
-        new_letters = letters.gsub(/(_)/, letter )
-        @valid_words.push(find_permutations(new_letters))
-      end
-      @valid_words.compact!
-    end
+    # def blank_tiles(letters)
+    #   # this is a lot of processing and makes the program slow
+    #   # is there a way to do this more effective, different approaches?
+    #   # Nil words were being saved in the array of valid words, used compact! as a quick solution to get rid of them
+    #   # with more time, i would identify where and why Nil is getting saved in the array and would remedy the code
+    #   ('a'..'z').each do |letter|
+    #     new_letters = letters.gsub(/(_)/, letter )
+    #     @valid_words.push(find_permutations(new_letters))
+    #   end
+    #   @valid_words.compact!
+    # end
 
   end
 end

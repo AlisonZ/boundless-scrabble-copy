@@ -13,14 +13,23 @@ module Scrabble
       begin_game
     end
 
+    def blank_tiles
+      original_letters = @letters
+
+      ('a'..'z').each do |letter|
+        @letters = original_letters.gsub(/(_)/, letter )
+        @valid_words.push(find_permutations)
+      end
+      @valid_words.compact!
+    end
+
     def find_permutations
-      # puts @letters
-      # if letters.include?("_")
-      #   return blank_tiles(letters)
-      # end
-      #
+      if @letters.include?("_")
+        return blank_tiles
+      end
+
       letters_arr = letters.split("")
-      #
+
       i = 2
       while i <= letters.length
         perms = letters_arr.permutation(i).to_a
