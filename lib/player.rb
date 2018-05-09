@@ -8,6 +8,40 @@ module Scrabble
       begin_game
     end
 
+    def find_permutations
+      puts @letters
+      # if letters.include?("_")
+      #   return blank_tiles(letters)
+      # end
+      #
+      # letters_arr = letters.split("")
+      #
+      # i = 2
+      # while i <= letters.length
+      #   perms = letters_arr.permutation(i).to_a
+      #   perms.each do |p|
+      #     word = p.join("")
+      #     if @dictionary.validate_words(word) && !@valid_words.include?(word)
+      #       @valid_words.push(word)
+      #     end
+      #   end
+      #   i +=1
+      # end
+    end
+
+
+    def find_highest_score
+      find_permutations
+      # if @valid_words.length === 0
+      #   puts "Sorry - there are no valid words with those letters"
+      # else
+      #   Scoring.score_words(@valid_words, @letter_points)
+      # end
+    end
+
+
+
+
     def get_letters
 
       letters = gets.chomp
@@ -19,7 +53,7 @@ module Scrabble
       end
 
       if letters !~ /[^A-Za-z_]/ && letters.count('_') <= 2
-        @letters = letters
+        @letters = letters.downcase
       else
         puts "_" * 75
         puts "You can only enter letters and two '_' for blank tiles"
@@ -27,6 +61,7 @@ module Scrabble
         get_letters
       end
 
+      find_highest_score
     end
 
     def get_name
