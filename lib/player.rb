@@ -1,3 +1,5 @@
+require_relative "./scoring.rb"
+
 module Scrabble
   class Player
     attr_reader :name, :letters, :word
@@ -12,7 +14,7 @@ module Scrabble
     end
 
     def find_permutations
-      puts @letters
+      # puts @letters
       # if letters.include?("_")
       #   return blank_tiles(letters)
       # end
@@ -35,11 +37,10 @@ module Scrabble
 
     def find_highest_score
       find_permutations
-      puts "these are the valid words #{@valid_words}"
       if @valid_words.length === 0
         puts "Sorry - there are no valid words with those letters"
       else
-        Scoring.score_words(@valid_words, @letter_points)
+        Scoring.score_words(@valid_words, @game.letter_points)
       end
     end
 

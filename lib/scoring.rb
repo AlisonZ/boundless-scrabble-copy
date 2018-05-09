@@ -2,7 +2,6 @@ module Scrabble
   class Scoring
     def self.score_words(valid_words, letter_points)
       word_scores = {}
-
       valid_words.each do |word|
         current_score = 0
         word.split("").each do |char|
