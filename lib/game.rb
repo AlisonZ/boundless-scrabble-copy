@@ -26,7 +26,8 @@ module Scrabble
 
     def start_game
       puts "Welcome to a new game!"
-      @player = Scrabble::Player.new()
+      game = self
+      @player = Scrabble::Player.new(game)
       # if @player.letters
       #   find_highest_score(@player.letters)
       # elsif @player.word

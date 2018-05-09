@@ -1,10 +1,11 @@
 module Scrabble
   class Player
     attr_reader :name, :letters, :word
-    def initialize
+    def initialize(game)
       @name = name
       @letters = letters
       @word = word
+      @game = game
       begin_game
     end
 
