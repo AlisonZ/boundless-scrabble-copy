@@ -10,7 +10,7 @@ module Scrabble
       @dictionary = dictionary
       @letter_points = letter_points
       @player = player
-      @valid_words = []
+      # @valid_words = []
       create_dictionary
       create_letter_points
       start_game
@@ -26,7 +26,10 @@ module Scrabble
 
     def start_game
       puts "Welcome to a new game!"
+
+      # TODO: create player :belongs_to game relationship with database to not have to pass game to player
       game = self
+
       @player = Scrabble::Player.new(game)
       # if @player.letters
       #   find_highest_score(@player.letters)
