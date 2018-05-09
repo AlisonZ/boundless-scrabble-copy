@@ -10,7 +10,6 @@ module Scrabble
       @dictionary = dictionary
       @letter_points = letter_points
       @player = player
-      # @valid_words = []
       create_dictionary
       create_letter_points
       start_game
@@ -31,26 +30,8 @@ module Scrabble
       game = self
 
       @player = Scrabble::Player.new(game)
-      # if @player.letters
-      #   find_highest_score(@player.letters)
-      # elsif @player.word
-      #   find_word_score(@player.word)
-      # end
     end
 
-    # def find_highest_score(letters)
-    #   find_permutations(letters)
-    #   if @valid_words.length === 0
-    #     puts "Sorry - there are no valid words with those letters"
-    #   else
-    #     Scoring.score_words(@valid_words, @letter_points)
-    #   end
-    # end
-
-    def find_word_score(word)
-      puts "!" * 15
-      puts "Please stand by! This feature coming soon."
-    end
 
 
     def blank_tiles(letters)
@@ -64,27 +45,6 @@ module Scrabble
       end
       @valid_words.compact!
     end
-
-    # def find_permutations(letters)
-    #   letters.downcase!
-    #   if letters.include?("_")
-    #     return blank_tiles(letters)
-    #   end
-    #
-    #   letters_arr = letters.split("")
-    #
-    #   i = 2
-    #   while i <= letters.length
-    #     perms = letters_arr.permutation(i).to_a
-    #     perms.each do |p|
-    #       word = p.join("")
-    #       if @dictionary.validate_words(word) && !@valid_words.include?(word)
-    #         @valid_words.push(word)
-    #       end
-    #     end
-    #     i +=1
-    #   end
-    # end
 
   end
 end
