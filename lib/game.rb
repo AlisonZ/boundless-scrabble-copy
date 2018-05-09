@@ -1,15 +1,18 @@
 require_relative "./dictionary.rb"
-require_relative "./scoring.rb"
+require_relative "./scoreboard.rb"
 require_relative "./letter_points.rb"
 require_relative "./player.rb"
 
 module Scrabble
   class Game
     attr_reader :dictionary, :player, :valid_words, :letter_points, :player
+    # accessor because will need to read and write on it to modify scoreboard when words are played
+    attr_accessor :scoreboard
     def initialize
       @dictionary = dictionary
       @letter_points = letter_points
       @player = player
+      @scoreboard = Scrabble::Scoreboard.new()
       create_dictionary
       create_letter_points
       start_game

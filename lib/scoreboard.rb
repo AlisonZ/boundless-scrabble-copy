@@ -1,5 +1,10 @@
 module Scrabble
-  class Scoring
+  class Scoreboard
+    attr_accessor :matrix
+    def initialize
+      @matrix = []
+    end
+    # TODO: remove self and change in code to be called on the instance of scoreboard
     def self.score_words(valid_words, letter_points)
       word_scores = {}
       valid_words.each do |word|

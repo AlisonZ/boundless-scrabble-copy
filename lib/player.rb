@@ -1,4 +1,4 @@
-require_relative "./scoring.rb"
+require_relative "./scoreboard.rb"
 
 module Scrabble
   class Player
@@ -54,7 +54,6 @@ module Scrabble
 
 
     def get_letters
-
       letters = gets.chomp
 
       if letters.length < 2
