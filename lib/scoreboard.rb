@@ -4,8 +4,8 @@ module Scrabble
     def initialize
       @matrix = []
     end
-    # TODO: remove self and change in code to be called on the instance of scoreboard
-    def self.score_words(valid_words, letter_points)
+    
+    def score_words(valid_words, letter_points)
       word_scores = {}
       valid_words.each do |word|
         current_score = 0
@@ -18,15 +18,15 @@ module Scrabble
           end
         end
       end
-    self.find_highest_score(word_scores)
+      find_highest_score(word_scores)
     end
 
 
-    def self.find_highest_score(word_scores)
-      self.report_findings(high_score = word_scores.max_by{|k,v| k})
+    def find_highest_score(word_scores)
+      report_findings(high_score = word_scores.max_by{|k,v| k})
     end
 
-    def self.report_findings(high_score)
+    def report_findings(high_score)
       puts "="* 30 + "RESULTS" + "=" * 30
       best_words = high_score[1].sort.uniq
       best_words.each do |word|

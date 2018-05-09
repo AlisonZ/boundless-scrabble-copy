@@ -48,7 +48,7 @@ module Scrabble
       if @valid_words.length === 0
         puts "Sorry - there are no valid words with those letters"
       else
-        Scoring.score_words(@valid_words, @game.letter_points)
+        @game.scoreboard.score_words(@valid_words, @game.letter_points)
       end
     end
 

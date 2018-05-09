@@ -18,6 +18,8 @@ module Scrabble
       start_game
     end
 
+
+    # TODO: remove these create and just have new instance on initialization
     def create_dictionary
       @dictionary = Scrabble::Dictionary.new()
     end
