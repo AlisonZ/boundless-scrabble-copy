@@ -43,7 +43,6 @@ module Scrabble
       end
     end
 
-
     def find_highest_score
       find_permutations
       if @valid_words.length === 0
