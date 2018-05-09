@@ -75,12 +75,6 @@ module Scrabble
       find_highest_score
     end
 
-    def get_name
-      puts "What's your name?"
-      @name = gets.chomp
-      choose_game
-    end
-
     def choose_game
       puts "Select a number to determine how you would like to proceed:"
       puts " " * 50
@@ -107,7 +101,9 @@ module Scrabble
     end
 
     def begin_game
-      get_name
+      puts "What's your name?"
+      @name = gets.chomp
+      choose_game
     end
   end
 end
